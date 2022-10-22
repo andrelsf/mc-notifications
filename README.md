@@ -18,11 +18,19 @@ mvn spring-boot:run
 #### SMS
 ```shell
 http --json POST :8090/api/v1/notifications < httpRequests/postNotificationsSMS.json
+
+{
+    "status": "SMS sent successfully"
+}
 ```
 
 #### EMAIL
 ```shell
 http --json POST :8090/api/v1/notifications < httpRequests/postNotificationsEMAIL.json
+
+{
+    "status": "EMAIL sent successfully"
+}
 ```
 
 ### Reference Documentation
