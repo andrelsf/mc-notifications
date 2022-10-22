@@ -9,24 +9,54 @@
     <version>2.7.5</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
+
   <groupId>br.dev.multicode</groupId>
   <artifactId>mc-notifications</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>mc-notifications</name>
-  <description>mc-notifications</description>
+  <description>Implement Strategy Pattern with Spring Plugin</description>
+
   <properties>
     <java.version>11</java.version>
   </properties>
+
   <dependencies>
+    <!-- Spring Starter Web -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-tomcat</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
+    <!-- Undertow -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+
+    <!-- Spring Plugin Core -->
+    <dependency>
+      <groupId>org.springframework.plugin</groupId>
+      <artifactId>spring-plugin-core</artifactId>
+      <version>2.0.0.RELEASE</version>
+    </dependency>
+
+    <!-- Spring Test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   </dependencies>
 

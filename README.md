@@ -1,4 +1,29 @@
-# Getting Started
+# Spring Plugin Core
+
+### Implement Strategy Pattern with Spring Plugin
+
+### Requeriments:
+- Java 11+
+- Maven 3+
+- HTTPie or web client tool of your choice :)
+
+### Run application:
+```shell
+mvn spring-boot:run
+```
+
+### Example Requests:
+- `Directory with examples ./httpRequests/`
+- `A log will be issued when the plugin finds the implementation by the notification type informed in the request`
+#### SMS
+```shell
+http --json POST :8090/api/v1/notifications < httpRequests/postNotificationsSMS.json
+```
+
+#### EMAIL
+```shell
+http --json POST :8090/api/v1/notifications < httpRequests/postNotificationsEMAIL.json
+```
 
 ### Reference Documentation
 

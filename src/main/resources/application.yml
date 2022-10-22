@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8090}
+  shutdown: graceful
+  undertow:
+    threads:
+      io: ${UNDERTOW_IO_THREADS:10}
+      worker: ${UNDERTOW_IO_WORKERS:100}
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: mc-notifications
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+logging:
+  level:
+    root: ${LOGGING_LEVEL:INFO}
+    org.hibernate.type.descriptor.sql: ${LOGGING_LEVEL:INFO}
+  pattern:
+    console: "[%thread][%highlight(%-5level)][%cyan(%d{yyyy-MM-dd HH:mm:ss})][%yellow(%X{requestId})][%magenta(%logger{40})] - %msg%n"
