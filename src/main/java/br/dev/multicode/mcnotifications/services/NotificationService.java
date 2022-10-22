@@ -5,6 +5,6 @@ import org.springframework.plugin.core.Plugin;
 
 public interface NotificationService extends Plugin<NotificationType> {
 
-  void send(String Message);
+  String send(String Message);
 
 }

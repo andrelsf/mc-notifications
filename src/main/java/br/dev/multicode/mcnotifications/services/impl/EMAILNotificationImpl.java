@@ -12,8 +12,9 @@ public class EMAILNotificationImpl implements NotificationService {
   private static final Logger log = LoggerFactory.getLogger(EMAILNotificationImpl.class);
 
   @Override
-  public void send(String Message) {
+  public String send(String Message) {
     log.info("EMAIL sent successfully");
+    return "EMAIL sent successfully";
   }
 
   @Override

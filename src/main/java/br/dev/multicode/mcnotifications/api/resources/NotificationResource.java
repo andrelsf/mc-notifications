@@ -1,10 +1,12 @@
 package br.dev.multicode.mcnotifications.api.resources;
 
 import br.dev.multicode.mcnotifications.api.http.requests.PostNotificationRequest;
+import br.dev.multicode.mcnotifications.api.http.responses.NotificationResponse;
 import br.dev.multicode.mcnotifications.enums.NotificationType;
 import br.dev.multicode.mcnotifications.services.NotificationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.plugin.core.PluginRegistry;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,8 +31,9 @@ public class NotificationResource {
 
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
-  public void postNotifications(@RequestBody PostNotificationRequest postNotificationRequest) {
-    notificationServices.getRequiredPluginFor(postNotificationRequest.getNotificationType())
+  public ResponseEntity<NotificationResponse> postNotifications(@RequestBody PostNotificationRequest postNotificationRequest) {
+    final String status = notificationServices.getRequiredPluginFor(postNotificationRequest.getNotificationType())
         .send(postNotificationRequest.getMessage());
+    return ResponseEntity.status(HttpStatus.OK).body(new NotificationResponse(status));
   }
 }

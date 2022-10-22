@@ -17,7 +17,8 @@ public class SMSNotificationImpl implements NotificationService {
   }
 
   @Override
-  public void send(String Message) {
+  public String send(String Message) {
     log.info("SMS sent successfully");
+    return "SMS sent successfully";
   }
 }
